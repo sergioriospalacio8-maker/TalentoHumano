@@ -153,3 +153,24 @@ private String formatoPesos(double valor){
     return String.format("$ %, .0f", valor);
 }
 
+private void conectarEventos() {
+
+    cmbTipo.addActionListener(e -> {
+        boolean necesitaValor = tipoSeleccionado().equals("Administrativo") || tipoSeleccionado().equals("Comercial");
+
+        txtBonificacion.setEnbled(necesitaValor);
+
+        if (!necesitaValor) {
+            txtBonificacion.setText("");
+        }
+    });
+
+    btnAgregar.addActionListener(e -> mostrarResultado(controlador.agregarEmpleado(texto(txtCedula), texto(txtNombre), texto(txtSalario), tipoSeleccionado(), texto(txtBonificacion))));
+
+    btnActualizar.addAcionListener(e -> mostrarResultado(controlador.actualizarEmpleado(texto(txtCedula), texto(txtNombre), texto(txtSalario), tipoSeleccionado(), texto(txtBonificacion))));
+
+    btnBuscar.addActionListener(e -> buscar());
+    btnEliminar.addActionListener(e -> eliminar());
+    btnLimpiar.addActionListener(e -> mostrarHistorial());
+
+}
