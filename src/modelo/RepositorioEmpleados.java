@@ -7,6 +7,15 @@ public class RepositorioEmpleados {
 
     private final HashMap<String,EmpleadoBase> empleados = new HashMap<>();
 
+    public boolean agregar(EmpleadoBase empleado){
+        if (empleados.containsKey(empleado.getCedula())) {
+            return false;
+        }
+
+        empleados.put(empleado.getCedula(), empleado);
+        return true;
+    }
+
 
 
 }
