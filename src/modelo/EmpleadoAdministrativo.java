@@ -1,6 +1,8 @@
 package modelo;
 
-public class EmpleadoAdministrativo {
+public class EmpleadoAdministrativo extends EmpleadoBase {
+
+    
 
 
 }
