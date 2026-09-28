@@ -1,6 +1,7 @@
 package modelo;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RepositorioEmpleados {
@@ -31,6 +32,10 @@ public class RepositorioEmpleados {
 
     public boolean eliminar(String cedula){
         return empleados.remove(cedula) != null;
+    }
+
+    public ArrayList<EmpleadoBase> listarTodos(){
+        return new ArrayList<>(empleados.values());
     }
 
 
