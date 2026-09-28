@@ -47,7 +47,33 @@ public class VentanaEmpleados extends JFrame {
         refrescarTabla();
     }
 
+    private JPanel construirFormulario(){
 
+        JPanel campos = new JPanel(new GridLayout(5,2,5,5));
 
+        campos.setBorder(BorderFactory.createTitledBorder("Datos del empleado")
+        );
+
+        campos.add(new JLabel("Cedula:"));
+
+        campos.add(txtCedula);
+
+        campos.add(new JLabel("Nombre")
+        );
+
+        campos.add(txtNombre);
+        campos.add(new JLabel("Salario base:"));
+
+        campos.add(txtSalario);
+        campos.add(new JLabel("Tipo:")
+        );
+
+        campos.add(cmbTipo);
+        campos.add(new JLabel("Bonificacion / Comision %:")
+        );
+
+        campos.add(textBonificacion);
+
+    }
 }
 
