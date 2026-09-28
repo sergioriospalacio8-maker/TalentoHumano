@@ -14,4 +14,12 @@ public class EmpleadoControlador {
 
     private final RepositorioEmpleados repositorio;
     private final ArrayList<String> historial;
+
+    public EmpleadoControlador(){
+
+        repositorio = new RepositorioEmpleados();
+        historial = new ArrayList<>();
+
+        cargarDatosDeprueba();
+    }
 }
