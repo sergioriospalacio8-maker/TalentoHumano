@@ -172,5 +172,10 @@ private void conectarEventos() {
     btnBuscar.addActionListener(e -> buscar());
     btnEliminar.addActionListener(e -> eliminar());
     btnLimpiar.addActionListener(e -> mostrarHistorial());
+}
 
+private void mostrarResultado(String mensaje){
+    JOptionPane.showMessageDialog(this,mensaje);
+
+    refrescarTabla();
 }
