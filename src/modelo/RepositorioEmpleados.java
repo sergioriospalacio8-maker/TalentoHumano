@@ -29,6 +29,10 @@ public class RepositorioEmpleados {
         return true;
     }
 
+    public boolean eliminar(String cedula){
+        return empleados.remove(cedula) != null;
+    }
+
 
 
 }
