@@ -8,6 +8,9 @@ public class EmpleadoAdministrativo extends EmpleadoBase {
 
         super(cedula, nombre, salarioBase);
         this.bonificacion = bonificacion;
+    }
 
+    public double getBonificacion() {
+        return bonificacion;
     }
 }
