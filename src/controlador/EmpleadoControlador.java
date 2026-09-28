@@ -61,4 +61,26 @@ public class EmpleadoControlador {
             repositorio.agregar(empleado);
         }
     }
+
+    private boolean esNumeroValido(String texto){
+        if (texto.isEmpty() || texto.equals(".")){
+            return false;
+        }
+
+        int puntos = 0;
+
+        for (int i = 0; i < texto.length(); i++){
+            char c = texto.charAt(i);
+
+            if (c == '.'){
+
+                puntos++;
+
+            } else if (!Character.isDigit(c)){
+                return false;
+            }
+        }
+
+        return puntos <= 1;
+    }
 }
