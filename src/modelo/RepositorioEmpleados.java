@@ -37,7 +37,4 @@ public class RepositorioEmpleados {
     public ArrayList<EmpleadoBase> listarTodos(){
         return new ArrayList<>(empleados.values());
     }
-
-
-
 }
