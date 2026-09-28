@@ -16,6 +16,10 @@ public class RepositorioEmpleados {
         return true;
     }
 
+    public EmpleadoBase buscar(String cedula){
+        return empleados.get(cedula);
+    }
+
 
 
 }
