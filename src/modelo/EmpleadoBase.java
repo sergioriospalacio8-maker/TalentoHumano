@@ -32,4 +32,13 @@ public class EmpleadoBase {
         }
     }
 
+    public double calcularSalarioTotal() {
+        return salarioBase;
+    }
+
+    public String getTipo(){
+        return "Operativo";
+    }
+}
+
 
