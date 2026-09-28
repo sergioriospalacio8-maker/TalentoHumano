@@ -83,4 +83,42 @@ public class EmpleadoControlador {
 
         return puntos <= 1;
     }
+
+    private String validar(String cedula, String nombre, String salario, String tipo, String bonificacion){
+
+        if (cedula.isEmpty() || nombre.isEmpty()){
+            return "La cedula y el nombre son obligatorios.";
+        }
+
+        if (!esNumeroValido(salario)){
+            return "El salario debe ser un numero positivo" + "(sin puntos de miles).";
+        }
+
+        if (tipo.equals("Administrativo")){
+
+            if (!esNumeroValido(bonificacion)){
+                return "La bonificacion debe ser un numero positivo.";
+
+            }
+        }
+
+        if (tipo.equals("Comercial")){
+
+            if (!esNumeroValido(bonificacion)){
+                return "La comision debe ser un porcentaje valido.";
+            }
+
+            double porcentaje = Double.parseDouble(bonificacion);
+
+            if (porcentaje < 0){
+                return "La comision no puede ser negativa.";
+            }
+
+            if (porcentaje > 50){
+                return "La comision no puede ser mayor al 50%.";
+            }
+        }
+
+        return null;
+    }
 }
