@@ -14,4 +14,18 @@ public class EmpleadoComercial extends EmpleadoBase{
         return porcentajeComision;
     }
 
+    @Override
+    public double calcularSalarioTotal(){
+
+        double comision = super.calcularSalarioTotal() * porcentajeComision / 100;
+        return super.calcularSalarioTotal() + comision;
+    }
+
+    @Override
+    public String getTipo(){
+        return "Comercial";
+    }
 }
+
+
+
