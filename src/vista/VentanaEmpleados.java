@@ -7,6 +7,7 @@ import modelo.EmpleadoComercial;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class VentanaEmpleados extends JFrame {
 
@@ -243,4 +244,24 @@ private void limpiarFormulario() {
 
     cmbTipo.setSelectedIndex(0);
     txtCedula.requestFocus();
+}
+
+private void mostrarHistorial() {
+
+    ArrayList<String> historial = controlador.obtenerHistorial();
+
+    if (historial.isEmpty()){
+
+        JOptionPane.showMessageDialog(this,"Aun no hay operaciones registradas.");
+        return;
+    }
+
+    String texto = "";
+
+    for (int i = 0; i < historial.size(); i++){
+
+        texto += (i + 1) + "." + historial.get(i) + "\n";
+    }
+
+    JOptionPane.showMessageDialog(this, texto,"Historial de operaciones", JOptionPane.INFORMATION_MESSAGE);
 }
