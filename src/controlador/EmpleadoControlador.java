@@ -18,7 +18,7 @@ public class EmpleadoControlador {
     private final RepositorioEmpleados repositorio;
     private final ArrayList<String> historial;
 
-    // Constructor
+
 
     public EmpleadoControlador() {
 
@@ -28,9 +28,7 @@ public class EmpleadoControlador {
         cargarDatosDePrueba();
     }
 
-    // =========================================================
-    // DATOS DE PRUEBA
-    // =========================================================
+
 
     private void cargarDatosDePrueba() {
 
@@ -81,10 +79,6 @@ public class EmpleadoControlador {
         }
     }
 
-    // =========================================================
-    // VALIDAR NÚMEROS
-    // =========================================================
-
     private boolean esNumeroValido(String texto) {
 
         if (texto.isEmpty() || texto.equals(".")) {
@@ -109,10 +103,6 @@ public class EmpleadoControlador {
 
         return puntos <= 1;
     }
-
-    // =========================================================
-    // VALIDACIONES
-    // =========================================================
 
     private String validar(String cedula,
                            String nombre,
@@ -156,10 +146,6 @@ public class EmpleadoControlador {
         return null;
     }
 
-    // =========================================================
-    // CONSTRUIR EMPLEADO
-    // =========================================================
-
     private EmpleadoBase construirEmpleado(String cedula,
                                            String nombre,
                                            String salario,
@@ -199,10 +185,6 @@ public class EmpleadoControlador {
                 salarioBase
         );
     }
-
-    // =========================================================
-    // AGREGAR
-    // =========================================================
 
     public String agregarEmpleado(String cedula,
                                   String nombre,
@@ -247,10 +229,6 @@ public class EmpleadoControlador {
                 + ".";
     }
 
-    // =========================================================
-    // BUSCAR
-    // =========================================================
-
     public EmpleadoBase buscarEmpleado(String cedula) {
 
         historial.add(
@@ -259,10 +237,6 @@ public class EmpleadoControlador {
 
         return repositorio.buscar(cedula);
     }
-
-    // =========================================================
-    // ACTUALIZAR
-    // =========================================================
 
     public String actualizarEmpleado(String cedula,
                                      String nombre,
@@ -308,10 +282,6 @@ public class EmpleadoControlador {
                 + ".";
     }
 
-    // =========================================================
-    // ELIMINAR
-    // =========================================================
-
     public String eliminarEmpleado(String cedula) {
 
         if (repositorio.eliminar(cedula)) {
@@ -328,18 +298,10 @@ public class EmpleadoControlador {
                 + ".";
     }
 
-    // =========================================================
-    // OBTENER EMPLEADOS
-    // =========================================================
-
     public ArrayList<EmpleadoBase> obtenerEmpleados() {
 
         return repositorio.listarTodos();
     }
-
-    // =========================================================
-    // CALCULAR NÓMINA
-    // =========================================================
 
     public double calcularTotalNomina() {
 
@@ -352,11 +314,7 @@ public class EmpleadoControlador {
 
         return total;
     }
-
-    // =========================================================
-    // HISTORIAL
-    // =========================================================
-
+    
     public ArrayList<String> obtenerHistorial() {
 
         return new ArrayList<>(historial);
