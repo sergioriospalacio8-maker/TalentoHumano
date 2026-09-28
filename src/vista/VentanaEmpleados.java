@@ -101,7 +101,11 @@ public class VentanaEmpleados extends JFrame {
 
         textBonificacion.setEnabled(false);
         return panel;
-
     }
+
+    private String texto(JTextField campo){
+        return campo.getText().trim();
+    }
+    
 }
 
