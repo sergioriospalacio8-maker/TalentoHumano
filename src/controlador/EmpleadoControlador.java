@@ -208,3 +208,12 @@ public ArrayList<EmpleadoBase> obtenerEmpleados() {
     return repositorio.listarTodos();
 }
 
+public double calcularTotalNomina(){
+    double total = 0;
+
+    for (EmpleadoBase empleado : obtenerEmpleados()){
+        total += empleado.calcularSalarioTotal();
+    }
+    return total;
+}
+
