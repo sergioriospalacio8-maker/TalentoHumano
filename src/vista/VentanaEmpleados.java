@@ -16,10 +16,6 @@ public class VentanaEmpleados extends JFrame {
 
     private final EmpleadoControlador controlador;
 
-    // =========================================================
-    // CAMPOS DEL FORMULARIO
-    // =========================================================
-
     private final JTextField txtCedula =
             new JTextField();
 
@@ -36,10 +32,6 @@ public class VentanaEmpleados extends JFrame {
             new JComboBox<>(
                     EmpleadoControlador.TIPOS_EMPLEADO
             );
-
-    // =========================================================
-    // BOTONES
-    // =========================================================
 
     private final JButton btnAgregar =
             new JButton("Agregar");
@@ -59,23 +51,14 @@ public class VentanaEmpleados extends JFrame {
     private final JButton btnHistorial =
             new JButton("Historial");
 
-    // BOTÓN DEL RETO BONUS
-
     private final JButton btnEstadisticas =
             new JButton("Estadísticas");
-
-    // =========================================================
-    // TABLA
-    // =========================================================
 
     private DefaultTableModel datosTabla;
 
     private final JLabel lblResumen =
             new JLabel("Empleados: 0 | Total nómina: $ 0");
 
-    // =========================================================
-    // CONSTRUCTOR
-    // =========================================================
 
     public VentanaEmpleados(
             EmpleadoControlador controlador) {
@@ -113,10 +96,6 @@ public class VentanaEmpleados extends JFrame {
 
         refrescarTabla();
     }
-
-    // =========================================================
-    // FORMULARIO
-    // =========================================================
 
     private JPanel construirFormulario() {
 
@@ -163,9 +142,6 @@ public class VentanaEmpleados extends JFrame {
 
         campos.add(txtBonificacion);
 
-        // =====================================================
-        // BOTONES
-        // =====================================================
 
         JPanel botones =
                 new JPanel(
@@ -216,27 +192,15 @@ public class VentanaEmpleados extends JFrame {
         return panel;
     }
 
-    // =========================================================
-    // MÉTODO PARA LEER CAMPOS
-    // =========================================================
-
     private String texto(JTextField campo) {
 
         return campo.getText().trim();
     }
 
-    // =========================================================
-    // TIPO SELECCIONADO
-    // =========================================================
-
     private String tipoSeleccionado() {
 
         return (String) cmbTipo.getSelectedItem();
     }
-
-    // =========================================================
-    // TABLA
-    // =========================================================
 
     private JScrollPane construirTabla() {
 
@@ -278,10 +242,6 @@ public class VentanaEmpleados extends JFrame {
         return scroll;
     }
 
-    // =========================================================
-    // ACTUALIZAR TABLA
-    // =========================================================
-
     private void refrescarTabla() {
 
         datosTabla.setRowCount(0);
@@ -321,10 +281,6 @@ public class VentanaEmpleados extends JFrame {
         );
     }
 
-    // =========================================================
-    // FORMATO DE DINERO
-    // =========================================================
-
     private String formatoPesos(double valor) {
 
         return String.format(
@@ -332,10 +288,6 @@ public class VentanaEmpleados extends JFrame {
                 valor
         );
     }
-
-    // =========================================================
-    // EVENTOS
-    // =========================================================
 
     private void conectarEventos() {
 
@@ -359,8 +311,6 @@ public class VentanaEmpleados extends JFrame {
             }
         });
 
-        // Agregar
-
         btnAgregar.addActionListener(e ->
                 mostrarResultado(
                         controlador.agregarEmpleado(
@@ -372,8 +322,6 @@ public class VentanaEmpleados extends JFrame {
                         )
                 )
         );
-
-        // Actualizar
 
         btnActualizar.addActionListener(e ->
                 mostrarResultado(
@@ -387,40 +335,30 @@ public class VentanaEmpleados extends JFrame {
                 )
         );
 
-        // Buscar
-
         btnBuscar.addActionListener(
                 e -> buscar()
         );
 
-        // Eliminar
 
         btnEliminar.addActionListener(
                 e -> eliminar()
         );
 
-        // Limpiar
 
         btnLimpiar.addActionListener(
                 e -> limpiarFormulario()
         );
 
-        // Historial
 
         btnHistorial.addActionListener(
                 e -> mostrarHistorial()
         );
 
-        // Estadísticas
 
         btnEstadisticas.addActionListener(
                 e -> mostrarEstadisticas()
         );
     }
-
-    // =========================================================
-    // MOSTRAR RESULTADO
-    // =========================================================
 
     private void mostrarResultado(
             String mensaje) {
@@ -432,10 +370,6 @@ public class VentanaEmpleados extends JFrame {
 
         refrescarTabla();
     }
-
-    // =========================================================
-    // BUSCAR
-    // =========================================================
 
     private void buscar() {
 
@@ -485,7 +419,6 @@ public class VentanaEmpleados extends JFrame {
                 empleado.getTipo()
         );
 
-        // Administrativo
 
         if (
                 empleado
@@ -503,7 +436,6 @@ public class VentanaEmpleados extends JFrame {
             );
         }
 
-        // Comercial
 
         else if (
                 empleado
@@ -521,10 +453,6 @@ public class VentanaEmpleados extends JFrame {
             );
         }
     }
-
-    // =========================================================
-    // ELIMINAR
-    // =========================================================
 
     private void eliminar() {
 
@@ -567,10 +495,6 @@ public class VentanaEmpleados extends JFrame {
         }
     }
 
-    // =========================================================
-    // LIMPIAR
-    // =========================================================
-
     private void limpiarFormulario() {
 
         txtCedula.setText("");
@@ -585,10 +509,6 @@ public class VentanaEmpleados extends JFrame {
 
         txtCedula.requestFocus();
     }
-
-    // =========================================================
-    // HISTORIAL
-    // =========================================================
 
     private void mostrarHistorial() {
 
@@ -628,16 +548,11 @@ public class VentanaEmpleados extends JFrame {
         );
     }
 
-    // =========================================================
-    // ESTADÍSTICAS
-    // =========================================================
-
     private void mostrarEstadisticas() {
 
         HashMap<String, Integer> estadisticas =
                 new HashMap<>();
 
-        // Inicializamos los tres tipos
 
         estadisticas.put(
                 "Operativo",
@@ -654,7 +569,6 @@ public class VentanaEmpleados extends JFrame {
                 0
         );
 
-        // Contar empleados
 
         for (
                 EmpleadoBase empleado :
@@ -669,8 +583,7 @@ public class VentanaEmpleados extends JFrame {
                     estadisticas.get(tipo) + 1
             );
         }
-
-        // Crear mensaje
+        
 
         String texto =
                 "ESTADÍSTICAS DE EMPLEADOS\n\n";
