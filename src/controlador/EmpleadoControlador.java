@@ -217,3 +217,7 @@ public double calcularTotalNomina(){
     return total;
 }
 
+public ArrayList<String> obtenerHistorial() {
+    return new ArrayList<>(historial);
+}
+
