@@ -194,3 +194,13 @@ public String actualizarEmpleado(String cedula, String nombre, String salario, S
     return "No existe ningubn empleado con la cedula" + cedula + ".";
 }
 
+public String eliminarEmpleado(String cedula){
+
+    if (repositorio.eliminar(cedula)){
+        historial.add("ELIMINADO" + cedula);
+        return "Empleado eliminado correctamente.";
+    }
+
+    return "No existe ningun empleado con la cedula" + cedula + ".";
+}
+
