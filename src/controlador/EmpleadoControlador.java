@@ -1,5 +1,7 @@
 package controlador;
 
+import modelo.EmpleadoAdministrativo;
+import modelo.EmpleadoBase;
 import modelo.RepositorioEmpleados;
 
 import java.util.ArrayList;
@@ -21,5 +23,42 @@ public class EmpleadoControlador {
         historial = new ArrayList<>();
 
         cargarDatosDeprueba();
+    }
+
+    private void cargarDatosDeprueba(){
+
+        String[] cedulas = {
+                "1001",
+                "1002",
+                "1003",
+                "1004"
+        };
+
+        String[] nombres = {
+                "Ana Torres",
+                "Luis Gomez",
+                "Marta Rios",
+                "Pedro Cano"
+        };
+
+        double[] salarios = {
+                1800000,
+                2500000,
+                1750000,
+                3200000
+        };
+
+        for (int i = 0; i < cedulas.length; i++){
+            EmpleadoBase empleado;
+
+            if (i % 2 == 0){
+                empleado = new EmpleadoBase(cedulas[i], nombres[i], salarios[i]);
+
+            } else {
+                empleado = new EmpleadoAdministrativo(cedulas[i], nombres[i], salarios[i], 300000);
+
+            }
+            repositorio.agregar(empleado);
+        }
     }
 }
