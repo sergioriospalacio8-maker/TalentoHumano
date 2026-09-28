@@ -221,3 +221,4 @@ public ArrayList<String> obtenerHistorial() {
     return new ArrayList<>(historial);
 }
 
+
