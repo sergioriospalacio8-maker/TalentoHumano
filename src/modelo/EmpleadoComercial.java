@@ -1,5 +1,7 @@
 package modelo;
 
-public class EmpleadoComercial {
-    
+public class EmpleadoComercial extends EmpleadoBase{
+
+    private double porcentajeComision;
+
 }
