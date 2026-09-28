@@ -175,3 +175,22 @@ public EmpleadoBase buscarEmpleado(String cedula){
     return repositorio.buscar(cedula);
 }
 
+public String actualizarEmpleado(String cedula, String nombre, String salario, String tipo, String boniicacion){
+
+    String error = validar(cedula, nombre, salario, tipo, boniicacion);
+
+    if (error != null){
+        return error;
+    }
+
+    EmpleadoBase actualizado = construirEmpleado(cedula, nombre, salario, tipo, boniicacion);
+
+    if (repositorio.actualizar(actualizado)){
+        historial.add("ACTUALIZADO:" + cedula + "-" + nombre);
+
+        return "Empleado actualizado correctamente.";
+    }
+
+    return "No existe ningubn empleado con la cedula" + cedula + ".";
+}
+
