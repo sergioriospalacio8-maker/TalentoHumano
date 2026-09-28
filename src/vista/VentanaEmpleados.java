@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.EmpleadoAdministrativo;
 import modelo.EmpleadoBase;
 
 import javax.swing.*;
@@ -202,5 +203,11 @@ private void buscar(){
     txtSalario.setText(String.format("%.0f", empleado.getSalarioBase()));
 
     cmbTipo.setSelectedItem(empleado.getTipo());
+
+    if (empleado instanceof EmpleadoAdministrativo){
+
+        EmpleadoAdministrativo administrativo = (EmpleadoAdministrativo) empleado;
+
+        txtBonificacion.setText(String.format("%.0f", administrativo.getBonificacion()));
     }
 }
