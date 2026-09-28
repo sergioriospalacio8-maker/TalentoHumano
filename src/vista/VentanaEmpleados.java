@@ -219,3 +219,17 @@ private void buscar(){
         txtBonificacion.setText(String.format("%.0f", comercial.getPorcentajeComision()));
     }
 }
+
+private void eliminar() {
+
+    String cedula = texto(txtCedula);
+
+    int respuesta = JOptionPane.showConfirmDialog(this,"¿Seguro que deseas eliminar al empleado con cedula" + cedula + "?", "Confirmar eliminacion", JOptionPane.YES_NO_OPTION);
+
+    if (respuesta == JOptionPane.YES_OPTION){
+
+        mostrarResultado(controlador.eliminarEmpleado(cedula));
+
+        limpiarFormulario();
+    }
+}
