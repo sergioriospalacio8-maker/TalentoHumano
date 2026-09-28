@@ -20,6 +20,15 @@ public class RepositorioEmpleados {
         return empleados.get(cedula);
     }
 
+    public boolean actualizar(EmpleadoBase empleado){
+        if (!empleados.containsKey(empleado.getCedula())){
+            return false;
+        }
+
+        empleados.put(empleado.getCedula(), empleado);
+        return true;
+    }
+
 
 
 }
