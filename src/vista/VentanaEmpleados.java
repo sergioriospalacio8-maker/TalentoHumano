@@ -2,6 +2,7 @@ package vista;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class VentanaEmpleados extends JFrame {
 
@@ -23,7 +24,29 @@ public class VentanaEmpleados extends JFrame {
 
     private DefaultTableModel datosTabla;
     private final JLabel lblResumen = new JLabel("Empleados: 0 | Total nomina: $ 0");
-    
+
+    public VentanaEmpleados(EmpleadoControlador controlador){
+
+        this.controlador = controlador;
+
+        setTitle("Sistema de Talento Humano");
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setSize(900, 600);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout(10, 10));
+
+        add(construirFormulario(), BorderLayout.NORTH);
+
+        add(construirTabla(), BorderLayout.CENTER);
+
+        add(lblResumen, BorderLayout.SOUTH);
+
+        conectarEventos();
+        refrescarTabla();
+    }
+
 
 
 }
