@@ -204,3 +204,7 @@ public String eliminarEmpleado(String cedula){
     return "No existe ningun empleado con la cedula" + cedula + ".";
 }
 
+public ArrayList<EmpleadoBase> obtenerEmpleados() {
+    return repositorio.listarTodos();
+}
+
