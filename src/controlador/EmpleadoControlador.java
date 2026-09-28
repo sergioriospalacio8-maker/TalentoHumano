@@ -144,5 +144,28 @@ private EmpleadoBase construirEmpleado(String cedula, String nombre, String sala
    return new EmpleadoBase(cedula, nombre, salarioBase);
 }
 
+public String agregarEmpleado(String cedula, String nombre, String salario, String tipo, String bonificacion){
 
+    String error = validar(
+        cedula,
+        nombre,
+        salario,
+        tipo,
+        bonificacion
+    );
+
+    if (error != null){
+        return error;
+    }
+
+    EmpleadoBase nuevo = construirEmpleado(cedula, nombre, salario, tipo, bonificacion);
+
+    if (repositorio.agregaar(nuevo)){
+        historial.add("AGREGADO:" + cedula + "-" + nombre);
+
+        return "Empleado agregado correctamente.";
+    }
+
+    return "Ya exite un empleado con la cedula " + cedula + ".";
+}
 
