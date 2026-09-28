@@ -2,6 +2,7 @@ package vista;
 
 import modelo.EmpleadoAdministrativo;
 import modelo.EmpleadoBase;
+import modelo.EmpleadoComercial;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -209,5 +210,12 @@ private void buscar(){
         EmpleadoAdministrativo administrativo = (EmpleadoAdministrativo) empleado;
 
         txtBonificacion.setText(String.format("%.0f", administrativo.getBonificacion()));
+    }
+
+    if (empleado instanceof EmpleadoComercial){
+
+        EmpleadoComercial comercial = (EmpleadoComercial) empleado;
+
+        txtBonificacion.setText(String.format("%.0f", comercial.getPorcentajeComision()));
     }
 }
