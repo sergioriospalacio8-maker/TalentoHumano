@@ -179,3 +179,28 @@ private void mostrarResultado(String mensaje){
 
     refrescarTabla();
 }
+
+private void buscar(){
+
+    String cedula = texto(txtCedula);
+
+    if (cedula.isEmpty()){
+        JOptionPane.showMessageDialog(this,"Escribe una cedula para buscar.");
+        return;
+    }
+
+    EmpleadoBase empleado = controlador.buscarEmpleado(cedula);
+
+    if (empleado == null){
+
+        JOptionPane.showMessageDialog(this,"No se encontro ningun empleado con la cedula" + cedula + ".");
+        return;
+    }
+
+    txtNombre.setText( empleado.getNombre());
+
+    txtSalario.setText(String.format("%.0f", empleado.getSalarioBase()));
+
+    cmbTipo.setSelectedItem(empleado.getTipo());
+    }
+}
