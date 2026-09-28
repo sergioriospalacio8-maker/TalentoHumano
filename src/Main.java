@@ -1,4 +1,8 @@
 import javax.swing.*;
+import controlador.EmpleadoControlador;
+import vista.VentanaEmpleados;
+
+import javax.swing.SwingUtilities;
 
 public class Main {
 
@@ -8,7 +12,10 @@ public class Main {
 
             EmpleadoControlador controlador = new EmpleadoControlador();
 
-            VentanaEmpleado ventana = new VentanaEmpleados(controlador);
+            VentanaEmpleados ventana =
+                    new VentanaEmpleados(
+                            controlador
+                    );
 
             ventana.setVisible(true);
         });
