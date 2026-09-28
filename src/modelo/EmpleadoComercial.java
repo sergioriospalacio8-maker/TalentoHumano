@@ -10,4 +10,8 @@ public class EmpleadoComercial extends EmpleadoBase{
         this.porcentajeComision = porcentajeComision;
     }
 
+    public double getPorcentajeComision() {
+        return porcentajeComision;
+    }
+
 }
