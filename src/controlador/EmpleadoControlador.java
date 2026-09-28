@@ -169,3 +169,9 @@ public String agregarEmpleado(String cedula, String nombre, String salario, Stri
     return "Ya exite un empleado con la cedula " + cedula + ".";
 }
 
+public EmpleadoBase buscarEmpleado(String cedula){
+    historial.add("BUSQUEDA: " + cedula);
+
+    return repositorio.buscar(cedula);
+}
+
