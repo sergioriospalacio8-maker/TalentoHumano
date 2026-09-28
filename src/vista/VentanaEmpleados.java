@@ -149,3 +149,7 @@ private void refrescarTabla(){
 
 }
 
+private String formatoPesos(double valor){
+    return String.format("$ %, .0f", valor);
+}
+
