@@ -1,6 +1,7 @@
 package vista;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class VentanaEmpleados extends JFrame {
 
@@ -19,6 +20,10 @@ public class VentanaEmpleados extends JFrame {
     private final JButton btnLimpiar = new JButton("Limpiar");
     private final JButton btnHistorial = new JButton("Historial");
     private final JButton btnEstadisticas = new JButton("Estadisticas");
+
+    private DefaultTableModel datosTabla;
+    private final JLabel lblResumen = new JLabel("Empleados: 0 | Total nomina: $ 0");
+    
 
 
 }
